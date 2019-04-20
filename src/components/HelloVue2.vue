@@ -4,7 +4,7 @@
     <p v-bind:title="msg2">dd</p>
     <span v-if="seen">22</span>
     <ul>
-      <li v-for="candy in candies">
+      <li v-for="candy in candies" v-bind:key="candy">
         {{candy.text}}
       </li>
     </ul>
