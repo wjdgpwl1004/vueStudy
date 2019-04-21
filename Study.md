@@ -57,3 +57,27 @@ export default {
 
 - v-model="data변수명"
  - 해당 변수에 해당하는 모델을 양방향으로 바인딩한다.
+
+ #### 템플릿문법
+ - 보간법
+  - 문자열
+    - 데이터 바인딩의 가장 기초적인 형태는 Mustache {{ }} 를 활용한 텍스트 보간이다.
+
+```
+<template>
+  <div class="hello">
+    <p>{{msg}}</p>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'template',
+  data () {
+    return {
+      msg: 'Bear'
+    }
+  }
+}
+</script>
+```
