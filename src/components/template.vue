@@ -2,6 +2,8 @@
   <div class="hello">
     <p>수정불가 : {{msg}}</p>
     <button v-on:click="changeMsg">메시지 변경</button>
+    <span>HTMl출력 : <span v-html="realHTML"></span></span>
+    <div v-bind:class="dynamic" v-on:click="changeClass">v-bind 동적클래스</div>
   </div>
 </template>
 
@@ -10,12 +12,21 @@ export default {
   name: 'template',
   data () {
     return {
-      msg: 'Bear'
+      msg: 'Bear',
+      realHTML: '<em style="color:red;">test</em>',
+      dynamic: 'dynamic_ex1'
     }
   },
   methods: {
     changeMsg () {
       this.msg = '뿌뿌'
+    },
+    changeClass () {
+      if (this.dynamic === 'dynamic_ex1') {
+        this.dynamic = 'dynamic_ex2'
+      } else {
+        this.dynamic = 'dynamic_ex1'
+      }
     }
   }
 }
@@ -36,5 +47,11 @@ li {
 }
 a {
   color: #42b983;
+}
+.dynamic_ex1{
+  color:blue;
+}
+.dynamic_ex2{
+  color:pink;
 }
 </style>

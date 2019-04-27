@@ -51,14 +51,14 @@ export default {
 }
 </script> 
 ```
-#### 사용자입력핸들링
+# 사용자입력핸들링
 - v-on:이벤트명="함수명"
   - 해당 이벤트에 메서드를 바인딩하여 호출한다.
 
 - v-model="data변수명"
  - 해당 변수에 해당하는 모델을 양방향으로 바인딩한다.
 
- #### 템플릿문법
+ # 템플릿문법
  - 보간법
   - 문자열
     - 데이터 바인딩의 가장 기초적인 형태는 Mustache {{ }} 를 활용한 텍스트 보간이다.
@@ -81,3 +81,35 @@ export default {
 }
 </script>
 ```
+# 원시HTML
+- Mustache태그는 해당하는 데이터를 HTML이 아닌 일반 텍스트로 데이터를 해석한다. 
+- 실제 HTML을 출력하려면 v-html디렉티브를 사용해야 한다.
+- span태그의 내용은 realHTML으로 대체된다. 
+- 이떄 데이터 바인딩은 무시된다.
+- Vue는 문자열 기반 템플릿엔진이 아니기때문에 v-html을 통해 템플릿 사용이 불가하다.
+- 웹사이트에서 임의의 HTML을 동적으로 랜더링하면 XSS취약점이 발생하므로 지양해야한다.
+
+```
+<span>HTMl출력 : <span v-html="realHTML"></span></span>
+
+<script>
+export default {
+  name: 'template',
+  data () {
+    return {
+      msg: 'Bear',
+      realHTML: '<em style="color:red;">test</em>'
+    }
+  },
+  methods: {
+    changeMsg () {
+      this.msg = '뿌뿌'
+    }
+  }
+}
+</script>
+```
+# 속성
+- Mustache는 HTML속성에서 사용할 수 없다. 대신 v-bind:속성을 사용해야 한다.
+- v-bind:class로 인해 dynamicClass모델과 바인딩되고, v-on:click이벤트 발생시 div의 클래스 속성이동적으로 변한다.
+
