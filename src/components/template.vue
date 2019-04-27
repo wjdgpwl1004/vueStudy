@@ -4,6 +4,7 @@
     <button v-on:click="changeMsg">메시지 변경</button>
     <span>HTMl출력 : <span v-html="realHTML"></span></span>
     <div v-bind:class="dynamic" v-on:click="changeClass">v-bind 동적클래스</div>
+    <button v-bind:disabled="isButtonDisabled">Button</button>
   </div>
 </template>
 
@@ -14,7 +15,8 @@ export default {
     return {
       msg: 'Bear',
       realHTML: '<em style="color:red;">test</em>',
-      dynamic: 'dynamic_ex1'
+      dynamic: 'dynamic_ex1',
+      isButtonDisabled: true
     }
   },
   methods: {

@@ -113,3 +113,12 @@ export default {
 - Mustache는 HTML속성에서 사용할 수 없다. 대신 v-bind:속성을 사용해야 한다.
 - v-bind:class로 인해 dynamicClass모델과 바인딩되고, v-on:click이벤트 발생시 div의 클래스 속성이동적으로 변한다.
 
+- boolean값을 이용할떄는 다르게 동작한다.
+- 해당 boolean값이 false, undefined일경우에는 해당속성이 태그에 포함되지않은 채로 랜더링된다.
+
+# javascript표현식
+- vue.js는 모든 데이터 바인딩 내에서 javascript표현시의 기능을 지원한다.
+- 제약 사항은 하나의 단일 표현식에만 사용 가능하다는 것이며, 조건문은 작동하지 않는다.
+
+
+
