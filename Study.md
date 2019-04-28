@@ -120,5 +120,75 @@ export default {
 - vue.js는 모든 데이터 바인딩 내에서 javascript표현시의 기능을 지원한다.
 - 제약 사항은 하나의 단일 표현식에만 사용 가능하다는 것이며, 조건문은 작동하지 않는다.
 
+# 디렉티브
+- 디렉티브는 v-접두사가 붙어있는 특수속성이다.
+- 디렉티브 속성은 단일 Javascript표현식 사용이 가능하다.(v-for은 제외)
+- 디렉티브의 역할은 표현식의 값이 변경될때 해당 값의 변화를 DOM에 적용하는 것이다.
+
+# 전달인자
+- 일부 디렉티브는 콜론으로 표시되는 '전달인자'를 사용할 수 있다.
+- 예로 v-bind 디렉티브는 반응적으로 html 속성을 갱신하는데 사용된다.
+
+```
+<a v-bind:href="URL">이동</a>
+```
+- 여기서 href는 전달인자이다.
+- href의 속성값을 URL의 값에 바인드 한다.
+
+# 수식어
+- 수식어는 .(점)으로 표시되는 특수 접미사로, 디렉티브를 특별한 방법으로 바인딩한다.
+- 예로 .prevent수식어는 트리거된 이벤트에서 event.preventDefault()를 호출해야함을 디렉티브에게 알려준다.
+
+# 약어
+- vue.js에서 자주 사용되는 디렉티브인 v-bind와 v-on디렉티브에 대한 약어를 제공한다.
+```
+<!-- 기존방식 -->
+<a v-bind:href="URL">이동</a>
+<a v-on:click.prevent="changeMsg">prevent</a>
+
+<!-- 약어방식 -->
+<a :href="URL">이동</a>
+<a @click.prevent="changeMsg">prevent</a>
+```
+
+# computed와 watch
+- computed속성
+  - 템플릿 내에 표현식을 사용해야 편리하지만, 장황할수록 유지보수하기 어려워진다.
+  - 복잡한 로직이라면 반드시 computed속성을 사용해야 한다.
+
+  ```
+<template>
+  <div class="hello">
+    <p>원본 메세지: {{message}}</p>
+    <p>역순 메세지: {{reversedMessage}}</p>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'template',
+  data () {
+    return {
+      message: 'Bear'
+    }
+  },
+  computed: {
+    reversedMessage () {
+      return this.message.split('').reverse().join('')
+    }
+  }
+}
+</script>
+
+  ```
+
+- computed와 method의 차이
+  - computed 속성은 매번 연산을 새로 진행하는 것이 아니라 캐싱해두었다가 재 호출시 캐싱된 결과를 리턴해준다.(성능적인 이점)
+
+- computed 와 watch
+  - vue.js에는 vue 인스턴스의 데이터를 감시하고, 데이터 변경시 콜백되는 watch속성을 제공한다.
+
+- computed 속성의 Setter함수
+   - computed 속성은 기본적으로 getter함수만 가지고 있지만, 필요에 따라서 setter함수를 정의하여 사용할 수 있다.
 
 

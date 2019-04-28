@@ -5,6 +5,11 @@
     <span>HTMl출력 : <span v-html="realHTML"></span></span>
     <div v-bind:class="dynamic" v-on:click="changeClass">v-bind 동적클래스</div>
     <button v-bind:disabled="isButtonDisabled">Button</button>
+
+    <div v-if="isVisible">보이나요</div>
+    <a v-bind:href="URL">이동</a>
+
+    <a v-on:click.prevent="changeMsg">prevent</a>
   </div>
 </template>
 
@@ -16,7 +21,9 @@ export default {
       msg: 'Bear',
       realHTML: '<em style="color:red;">test</em>',
       dynamic: 'dynamic_ex1',
-      isButtonDisabled: true
+      isButtonDisabled: true,
+      isVisible: false,
+      URL: 'http://www.naver.com'
     }
   },
   methods: {

@@ -4,6 +4,7 @@ import HelloVue2 from '@/components/HelloVue2'
 import On from '@/components/on'
 import model from '@/components/model'
 import template from '@/components/template'
+import computed from '@/components/computed'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
       path: '/temp',
       name: 'template',
       component: template
+    },
+    {
+      path: '/computed',
+      name: 'computed',
+      component: computed
     }
   ]
 })
