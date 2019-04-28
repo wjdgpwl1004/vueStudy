@@ -25,10 +25,10 @@ export default {
       return this.message.split('').reverse().join('')
     },
     computedMessage: {
-      get: function () {
+      get () {
         return this.msg
       },
-      set: function (newValue) {
+      set (newValue) {
         this.msg = newValue + '추가'
       }
     }
