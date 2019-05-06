@@ -5,6 +5,8 @@ import On from '@/components/on'
 import model from '@/components/model'
 import template from '@/components/template'
 import computed from '@/components/computed'
+import Class from '@/components/class'
+import Style from '@/components/style'
 
 Vue.use(Router)
 
@@ -34,6 +36,16 @@ export default new Router({
       path: '/computed',
       name: 'computed',
       component: computed
+    },
+    {
+      path: '/class',
+      name: 'Class',
+      component: Class
+    },
+    {
+      path: '/style',
+      name: 'Style',
+      component: Style
     }
   ]
 })

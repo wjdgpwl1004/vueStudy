@@ -196,3 +196,43 @@ export default {
   - watch속성은 감시할 데이터를 저장하고, 이에 대한 변경으로 비동기 또는 시간이 오래걸리는 조작을 사용할 때 유용하다.
   - computed속성은 이러한 기능을 수행할 수 없습니다. 
 
+- 클래스와 스타일 바인딩
+  - 데이터 바인딩은 엘리먼트의 클래스와 인라인 스타일을 조작하기 위해 사용한다.
+  - v-bind속성을 사용해 처리할 수 있다. 
+  
+# HTML 클래스 바인딩
+  
+- 객체구문
+  - 클래스를 동적으로 전달하기 위해 v-bind:class에 객체를 전달 할 수 있다. 
+  - v-bind:class 에 할당된 객체가 반드시 인라인일 필요는 없다.
+  - 인라인으로 바인딩 한 것과 같은 결과로 랜더링되며, computed속성으로도 같은 결과를 도출 할수 있다.
+```
+<template>
+  <div class="hello">
+  //isActive의 true, flase 값에 따라 active 클래스가 할당된다.
+      <div v-text="message" v-bind:class="{active:isActive}"></div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'class',
+  data () {
+    return {
+      message: 'Bear',
+      isActive: true
+    }
+  }
+}
+</script>
+```
+- 배열구문
+  - v-bind:class 에 배열을 전달하여 class를 저장할 수 있다.
+
+# HTML 스타일 바인딩
+
+- 객체구문
+  - v-bind:style 은 매우 직설적이다.
+  - css처럼 보이지만, javascript 객체이다.
+  - 속성명에 camelCase와 kebab-case(따옴표 같이 사용해야함)을 사용할 수 있다.
+  - 인라인 바인딩 보다는 객체 바인딩을 통하여 템플릿을 깔끔하게 하는것이 좋다.
