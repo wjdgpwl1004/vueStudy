@@ -156,7 +156,7 @@ export default {
   - 템플릿 내에 표현식을 사용해야 편리하지만, 장황할수록 유지보수하기 어려워진다.
   - 복잡한 로직이라면 반드시 computed속성을 사용해야 한다.
 
-  ```
+```
 <template>
   <div class="hello">
     <p>원본 메세지: {{message}}</p>
@@ -180,7 +180,7 @@ export default {
 }
 </script>
 
-  ```
+```
 
 - computed와 method의 차이
   - computed 속성은 매번 연산을 새로 진행하는 것이 아니라 캐싱해두었다가 재 호출시 캐싱된 결과를 리턴해준다.(성능적인 이점)
@@ -191,4 +191,8 @@ export default {
 - computed 속성의 Setter함수
    - computed 속성은 기본적으로 getter함수만 가지고 있지만, 필요에 따라서 setter함수를 정의하여 사용할 수 있다.
 
+- Watch속성
+  - 대부분의 경우에는 Computed속성이 적합하지만, 감시자 속성이 필요한 경우가 있다.
+  - watch속성은 감시할 데이터를 저장하고, 이에 대한 변경으로 비동기 또는 시간이 오래걸리는 조작을 사용할 때 유용하다.
+  - computed속성은 이러한 기능을 수행할 수 없습니다. 
 
